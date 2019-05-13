@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<bean id="application" class="com.quantangle.infoplus.sdk.InfoPlusApplication"
+		factory-method="defaultApplication">
+		<property name="domain">
+			<value>${domain}</value>
+		</property>
+		<property name="messengers">
+			<list>
+				<bean class="qtgl.flow.messengers.Demo_Messenger">
+					<property name="workflow">
+						<value>test</value>
+					</property>
+					<property name="codeTables">
+						<list>
+							<value>al_java_xm</value>
+							<value>al_ys_bmszd</value>
+						</list>
+					</property>
+				</bean>
+				
+				<bean class="qtgl.flow.messengers.YanShiDemo_Messenger">
+					<property name="workflow">
+						<value>PxDemoInfo</value>
+					</property>
+				</bean>
+				 
+				 
+
+			</list>
+		</property>
+
+		<property name="sharedCodeTableBuilders">
+			<list>
+				<bean class="qtgl.flow.MyCodeTable">
+					<property name="key">
+						<value>Jjc_ProjectCode</value>
+					</property>
+				</bean>
+				<bean class="qtgl.flow.MyCodeTable">
+					<property name="key">
+						<value>Jjc_Contract</value>
+					</property>
+				</bean>
+				<bean class="qtgl.flow.MyCodeTable">
+					<property name="key">
+						<value>Jjc_Project</value>
+					</property>
+				</bean>
+			</list>
+		</property>
+
+	</bean>
+
+
+</beans>
